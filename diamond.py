@@ -1,8 +1,12 @@
 
-def rows(letter, inverted=False, common_row=False):
+def pattern(letter, inverted=False, common_row=True, value=1) -> list:
     alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     # the index is included up to that letter
-    at_letter = alphabet.index(letter) + 1
+    if not common_row:
+        at_letter = alphabet.index(letter)
+    else:
+        at_letter = alphabet.index(letter) + 1
+
     gap = 1
     # odd sequence of gap
     # gaps = [odd for odd in range(1, at_letter + 3, 2)]
@@ -17,7 +21,7 @@ def rows(letter, inverted=False, common_row=False):
         # needed character
         character = alphabet[:at_letter]
         # number of num_space in each side (left and right)
-        num_space = at_letter - 1
+        num_space = at_letter - value
         # # start of an odd sequence
         # gap = 1
     else:
@@ -26,37 +30,38 @@ def rows(letter, inverted=False, common_row=False):
         num_space = 0
 
         # for outputing the last common row
-        if common_row:
-            character = alphabet[start::-1]
-        else:
-            character =  alphabet[start-1::-1]        
+        # if common_row:
+        #     character = alphabet[start::-1]
+        # else:
+        #     character =  alphabet[start-1::-1]        
 
     
     result = []
     # top half including the middle row
     for _, chr in enumerate(character):
-        print(chr)
+        # print(chr)
         
         # first row is not fit into my theory so I kicked out.
         if chr == 'A':
-            row = '-' * num_space + chr + '-' * num_space
+            row = " " * num_space + chr + " " * num_space
         else:
-            row = '-' * num_space + chr + '-' * gap + chr + '-' * num_space
+            row = " " * num_space + chr + " " * gap + chr + " " * num_space
             # gap increases as an odd sequence 
             gap += 2
         
-        if inverted:
-            # num_space is increased
-            num_space += 1
-        else:
+        # if inverted:
+        #     # num_space is increased
+        #     num_space += 1
+        # else:
             # num_space is decreased
-            num_space -= 1
+        num_space -= 1
         
 
         result.append(row)
     
     return result
 
-x = rows("E", inverted=False)
-for i in x:
-    print(i)
+def rows(letter):
+    return pattern(letter, common_row=False, value=0) + list(reversed(pattern(letter)))
+
+
