@@ -18,3 +18,4 @@ def diamond(letter):
     for row in reversed(pattern[:-1]):
         pattern.append(row)
     return "".join(pattern)
+
