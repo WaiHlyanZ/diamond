@@ -12,11 +12,11 @@ def rows(letter):
         
         # Letter "A" does not have inner spacing
         if i == 0:
-            row = "-" * spaces + current_letter + "-" * spaces
+            row = " " * spaces + current_letter + " " * spaces
         else:
             # To add inner spacing for letters that are not "A"
-            inner_spaces = "-" * (2 * i - 1)
-            row = "-" * spaces + current_letter + inner_spaces + current_letter + "-" * spaces
+            inner_spaces = " " * (2 * i - 1)
+            row = " " * spaces + current_letter + inner_spaces + current_letter + " " * spaces
         
         result.append(row)
 
