@@ -22,6 +22,7 @@ def rows(letter):
 
     return result
 
-letter=input("Enter a letter: ")
-for i in rows(letter):
-    print(i)
+if __name__ == "__main__":
+    letter=input("Enter a letter: ")
+    for i in rows(letter):
+        print(i)
