@@ -1,20 +1,26 @@
 def rows(letter):
-    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    height = alphabet.index(letter) + 1
-    width = 2 * height - 1
-    pattern = []
+    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    letter_index = letters.index(letter)
+    row_indices = list(range(letter_index)) + list(range(letter_index, -1, -1))
 
-    # Generate the upper half of the pattern
-    for i in range(height):
-        row = ""
-        for j in range(width):
-            if j == height - 1 - i or j == height - 1 + i:
-                row += alphabet[i]
-            else:
-                row += "*"
-        pattern.append(row)
+    result = []
 
-    # Print the lower half (mirror of the upper half)
-    for row in reversed(pattern[:-1]):
-        patter.append(row)
-    return "".join(pattern)
+    for i in row_indices:
+        current_letter = letters[i]
+        
+        spaces = letter_index - i
+        
+        # Letter "A" does not have inner spacing
+        if i == 0:
+            row = " " * spaces + current_letter + " " * spaces
+        else:
+            # To add inner spacing for letters that are not "A"
+            inner_spaces = " " * (2 * i - 1)
+            row = " " * spaces + current_letter + inner_spaces + current_letter + " " * spaces
+        
+        result.append(row)
+
+    for each_row in result:
+        print(each_row)
+
+rows(letter=input("Enter a letter: "))
