@@ -11,10 +11,14 @@ def rows(letter):
             if j == height - 1 - i or j == height - 1 + i:
                 row += alphabet[i]
             else:
-                row += "*"
+                row += " "
         pattern.append(row)
 
-    # Print the lower half (mirror of the upper half)
+    # Mirror the pattern for the lower half
     for row in reversed(pattern[:-1]):
-        patter.append(row)
-    return "".join(pattern)
+        pattern.append(row)
+
+    return "\n".join(pattern)
+
+# Example usage
+print(rows("Z"))
