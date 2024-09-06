@@ -1,3 +1,5 @@
+"""
+# Mahn's solution
 def rows(letter):
     letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     letter_index = letters.index(letter)
@@ -26,3 +28,4 @@ if __name__ == "__main__":
     letter=input("Enter a letter: ")
     for i in rows(letter):
         print(i)
+"""
