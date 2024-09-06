@@ -18,7 +18,13 @@ def rows(letter):
     for row in reversed(pattern[:-1]):
         pattern.append(row)
 
-    return "\n".join(pattern)
+    return pattern
 
 # Example usage
-print(rows("Z"))
+
+
+if __name__ == "__main__":
+    letter=input("Enter a letter: ")
+    for i in rows(letter):
+        print(i)
+
