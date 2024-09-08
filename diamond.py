@@ -27,6 +27,7 @@ if __name__ == "__main__":
     letter=input("Enter a letter: ")
     for i in rows(letter):
         print(i)
+    print("--Ko Paing added--")
 
 
 #========================================================================================================================================================================
@@ -106,5 +107,5 @@ if __name__ == "__main__":
     for i in rows(letter):
         print(i)
 
-# Edited something
-
+## Ko Paing is also editing this file.
+## GGWP! 
